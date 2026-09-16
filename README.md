@@ -4,13 +4,93 @@
 
 Instead of keeping fields continuously flooded, IriPadi tracks the crop's growth stage and current water level, then decides when the water pump should turn on or off — either automatically via a trained ML model, or manually by the farmer through the app. This reduces water usage while keeping the crop at the right water level for each growth stage.
 
-## Screenshots
+## App walkthrough
 
-| | | |
-|---|---|---|
-| <img src="screenshots/start_page.jpg" width="220" alt="IriPadi start page"><br>Start page | <img src="screenshots/language.jpg" width="220" alt="Language selection screen"><br>Language selection | <img src="screenshots/user_input.jpg" width="220" alt="Paddy field setup form"><br>Field setup |
-| <img src="screenshots/dashboard_1.jpg" width="220" alt="Dashboard showing weather, field info, and water level graph"><br>Dashboard — overview | <img src="screenshots/dashboard_2.jpg" width="220" alt="Dashboard showing water level graph and pump control"><br>Dashboard — pump control | <img src="screenshots/field_info.jpg" width="220" alt="Paddy field info page"><br>Field info |
-| <img src="screenshots/irrigation_log.jpg" width="220" alt="Irrigation log table"><br>Irrigation log | <img src="screenshots/schedule_1.jpg" width="220" alt="AWD irrigation schedule recommendation table"><br>Schedule recommendation | <img src="screenshots/schedule_2.jpg" width="220" alt="AWD irrigation schedule recommendation table continued"><br>Schedule (cont.) |
+This walks through the app in the order a farmer actually uses it, from first launch to daily monitoring.
+
+<table>
+<tr>
+<td width="240"><img src="screenshots/start_page.jpg" width="220" alt="IriPadi start page"></td>
+<td>
+
+**1. Start page**
+The landing screen shown on first launch, introducing the app as "a smart AWD based paddy irrigation system" with a **Get Started** button that begins onboarding.
+
+</td>
+</tr>
+<tr>
+<td width="240"><img src="screenshots/language.jpg" width="220" alt="Language selection screen"></td>
+<td>
+
+**2. Language selection**
+First-time setup step where the farmer picks English, Malay, or Chinese. The choice is saved and can be changed later from the Field Info page.
+
+</td>
+</tr>
+<tr>
+<td width="240"><img src="screenshots/user_input.jpg" width="220" alt="Paddy field setup form"></td>
+<td>
+
+**3. Field setup**
+The farmer enters the **planting method** (e.g. Direct Seeding), **start date**, and **location** (typed manually or filled in via "Use Current Location"). This profile drives every downstream calculation: days after planting, growth stage, and the location used for weather lookups.
+
+</td>
+</tr>
+<tr>
+<td width="240"><img src="screenshots/dashboard_1.jpg" width="220" alt="Dashboard showing weather, field info, and water level graph"></td>
+<td>
+
+**4. Dashboard — overview**
+The home screen after setup. It shows current weather and a short forecast summary for the field's location, a **Paddy Field** card (planting date, days since planting, current growth stage), and a live **Water Level Graph** plotting the current water level against the target level for that growth stage.
+
+</td>
+</tr>
+<tr>
+<td width="240"><img src="screenshots/dashboard_2.jpg" width="220" alt="Dashboard showing water level graph and pump control"></td>
+<td>
+
+**5. Dashboard — pump control**
+Scrolling down the dashboard reveals **Water Pump Control**: the current pump status (ON/OFF), whether it's in **Auto** (ML-decided) or **Manual** mode, and a toggle button so the farmer can override the pump directly from the app.
+
+</td>
+</tr>
+<tr>
+<td width="240"><img src="screenshots/field_info.jpg" width="220" alt="Paddy field info page"></td>
+<td>
+
+**6. Field info**
+A read-only summary of the active field profile (location, planting method, start date) with an **Edit** action to update it, and a **Start New Planting** button to reset the profile and begin a new growing cycle.
+
+</td>
+</tr>
+<tr>
+<td width="240"><img src="screenshots/irrigation_log.jpg" width="220" alt="Irrigation log table"></td>
+<td>
+
+**7. Irrigation log**
+A chronological, filterable table of every recorded reading: date, time, measured water level, and whether irrigation (the pump) was ON or OFF at that moment — pulled from Firebase for auditing and monitoring pump behavior over time.
+
+</td>
+</tr>
+<tr>
+<td width="240"><img src="screenshots/schedule_1.jpg" width="220" alt="AWD irrigation schedule recommendation table"></td>
+<td>
+
+**8. Schedule recommendation**
+The AWD reference schedule for the selected planting method, listing each **growth stage**, its **day range**, and the **water-management strategy** for that stage (e.g. "Flood to 5cm above surface" during germination, "Safe AWD" during tillering).
+
+</td>
+</tr>
+<tr>
+<td width="240"><img src="screenshots/schedule_2.jpg" width="220" alt="AWD irrigation schedule recommendation table continued"></td>
+<td>
+
+**9. Schedule recommendation (continued)**
+The rest of the schedule through ripening and harvest, plus a note explaining the Safe AWD cycle (drying to ~15cm below soil, then re-flooding to ~5cm above), and the same table repeated for the Transplanting planting method.
+
+</td>
+</tr>
+</table>
 
 ## How it works
 
@@ -66,20 +146,5 @@ train_irrigation_xgb.py      # XGBoost model training script
 Irrigation_XGBoost_Model.ipynb  # Model development/experimentation notebook
 Water_depth_test.ino         # ESP12F/Arduino sketch for the ultrasonic water-level sensor
 ```
-
-## Getting started
-
-This is a standard Flutter project.
-
-1. Install [Flutter](https://docs.flutter.dev/get-started/install) (SDK ^3.5.3) and set up your platform toolchain (Android Studio / Xcode).
-2. Install dependencies:
-   ```
-   flutter pub get
-   ```
-3. Firebase config (`android/app/google-services.json`, `lib/firebase_options.dart`) is already included for this project's Firebase instance. To point the app at your own Firebase project instead, run `flutterfire configure`.
-4. Run the app:
-   ```
-   flutter run
-   ```
 
 The Raspberry Pi server (`app.py`) and ESP12F sketch (`Water_depth_test.ino`) are part of the hardware side of the system and are meant to run on their respective devices (Raspberry Pi and ESP8266/ESP12F), not on the mobile app's host machine.
