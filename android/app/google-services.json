@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "861320968820",
+    "firebase_url": "https://awd-irrigation-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "awd-irrigation",
+    "storage_bucket": "awd-irrigation.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:861320968820:android:9446361bf136d0d6ed6f21",
+        "android_client_info": {
+          "package_name": "com.example.flutter_application_1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDHrKFDE0mwQf01Syjhchv_Jjo9Yle_gLY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
