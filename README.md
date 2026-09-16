@@ -8,89 +8,59 @@ Instead of keeping fields continuously flooded, IriPadi tracks the crop's growth
 
 This walks through the app in the order a farmer actually uses it, from first launch to daily monitoring.
 
-<table>
-<tr>
-<td width="240"><img src="screenshots/start_page.jpg" width="220" alt="IriPadi start page"></td>
-<td>
+### 1. Start page
 
-**1. Start page**
+<img src="screenshots/start_page.jpg" width="260" alt="IriPadi start page">
+
 The landing screen shown on first launch, introducing the app as "a smart AWD based paddy irrigation system" with a **Get Started** button that begins onboarding.
 
-</td>
-</tr>
-<tr>
-<td width="240"><img src="screenshots/language.jpg" width="220" alt="Language selection screen"></td>
-<td>
+### 2. Language selection
 
-**2. Language selection**
+<img src="screenshots/language.jpg" width="260" alt="Language selection screen">
+
 First-time setup step where the farmer picks English, Malay, or Chinese. The choice is saved and can be changed later from the Field Info page.
 
-</td>
-</tr>
-<tr>
-<td width="240"><img src="screenshots/user_input.jpg" width="220" alt="Paddy field setup form"></td>
-<td>
+### 3. Field setup
 
-**3. Field setup**
+<img src="screenshots/user_input.jpg" width="260" alt="Paddy field setup form">
+
 The farmer enters the **planting method** (e.g. Direct Seeding), **start date**, and **location** (typed manually or filled in via "Use Current Location"). This profile drives every downstream calculation: days after planting, growth stage, and the location used for weather lookups.
 
-</td>
-</tr>
-<tr>
-<td width="240"><img src="screenshots/dashboard_1.jpg" width="220" alt="Dashboard showing weather, field info, and water level graph"></td>
-<td>
+### 4. Dashboard — overview
 
-**4. Dashboard — overview**
+<img src="screenshots/dashboard_1.jpg" width="260" alt="Dashboard showing weather, field info, and water level graph">
+
 The home screen after setup. It shows current weather and a short forecast summary for the field's location, a **Paddy Field** card (planting date, days since planting, current growth stage), and a live **Water Level Graph** plotting the current water level against the target level for that growth stage.
 
-</td>
-</tr>
-<tr>
-<td width="240"><img src="screenshots/dashboard_2.jpg" width="220" alt="Dashboard showing water level graph and pump control"></td>
-<td>
+### 5. Dashboard — pump control
 
-**5. Dashboard — pump control**
+<img src="screenshots/dashboard_2.jpg" width="260" alt="Dashboard showing water level graph and pump control">
+
 Scrolling down the dashboard reveals **Water Pump Control**: the current pump status (ON/OFF), whether it's in **Auto** (ML-decided) or **Manual** mode, and a toggle button so the farmer can override the pump directly from the app.
 
-</td>
-</tr>
-<tr>
-<td width="240"><img src="screenshots/field_info.jpg" width="220" alt="Paddy field info page"></td>
-<td>
+### 6. Field info
 
-**6. Field info**
+<img src="screenshots/field_info.jpg" width="260" alt="Paddy field info page">
+
 A read-only summary of the active field profile (location, planting method, start date) with an **Edit** action to update it, and a **Start New Planting** button to reset the profile and begin a new growing cycle.
 
-</td>
-</tr>
-<tr>
-<td width="240"><img src="screenshots/irrigation_log.jpg" width="220" alt="Irrigation log table"></td>
-<td>
+### 7. Irrigation log
 
-**7. Irrigation log**
+<img src="screenshots/irrigation_log.jpg" width="260" alt="Irrigation log table">
+
 A chronological, filterable table of every recorded reading: date, time, measured water level, and whether irrigation (the pump) was ON or OFF at that moment — pulled from Firebase for auditing and monitoring pump behavior over time.
 
-</td>
-</tr>
-<tr>
-<td width="240"><img src="screenshots/schedule_1.jpg" width="220" alt="AWD irrigation schedule recommendation table"></td>
-<td>
+### 8. Schedule recommendation
 
-**8. Schedule recommendation**
+<img src="screenshots/schedule_1.jpg" width="260" alt="AWD irrigation schedule recommendation table">
+
 The AWD reference schedule for the selected planting method, listing each **growth stage**, its **day range**, and the **water-management strategy** for that stage (e.g. "Flood to 5cm above surface" during germination, "Safe AWD" during tillering).
 
-</td>
-</tr>
-<tr>
-<td width="240"><img src="screenshots/schedule_2.jpg" width="220" alt="AWD irrigation schedule recommendation table continued"></td>
-<td>
+### 9. Schedule recommendation (continued)
 
-**9. Schedule recommendation (continued)**
+<img src="screenshots/schedule_2.jpg" width="260" alt="AWD irrigation schedule recommendation table continued">
+
 The rest of the schedule through ripening and harvest, plus a note explaining the Safe AWD cycle (drying to ~15cm below soil, then re-flooding to ~5cm above), and the same table repeated for the Transplanting planting method.
-
-</td>
-</tr>
-</table>
 
 ## How it works
 
