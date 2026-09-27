@@ -4,11 +4,12 @@ import 'package:flutter_application_1/weather/weather_model.dart';
 import 'package:flutter_application_1/weather/forecast_model.dart';
 import 'package:flutter_application_1/widgets/form_data_provider.dart';
 import 'package:provider/provider.dart';
+import 'weather_config.dart';
 import 'weather_service.dart';
 
 class WeatherProvider with ChangeNotifier {
   final WeatherService _weatherService = WeatherService(
-    googleApiKey: 'REDACTED_GOOGLE_API_KEY',
+    googleApiKey: kGoogleWeatherApiKey,
   );
   Weather? _weather;
   List<Forecast>? _forecast;

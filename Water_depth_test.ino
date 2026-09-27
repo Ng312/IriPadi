@@ -6,8 +6,9 @@
 #include "time.h"
 
 // --- Network credentials ---
-#define WIFI_SSID "REDACTED_WIFI_SSID"
-#define WIFI_PASSWORD "REDACTED_WIFI_PASSWORD"
+// WIFI_SSID and WIFI_PASSWORD are defined in secrets.h, which is git-ignored.
+// Copy secrets.example.h to secrets.h and fill in your own values.
+#include "secrets.h"
 
 // --- Destination server (Raspberry Pi) ---
 const char* pi_server = "10.187.208.20";

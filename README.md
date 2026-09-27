@@ -118,3 +118,25 @@ Water_depth_test.ino         # ESP12F/Arduino sketch for the ultrasonic water-le
 ```
 
 The Raspberry Pi server (`app.py`) and ESP12F sketch (`Water_depth_test.ino`) are part of the hardware side of the system and are meant to run on their respective devices (Raspberry Pi and ESP8266/ESP12F), not on the mobile app's host machine.
+
+## Configuration
+
+Credentials are not stored in this repository. Provide your own before building:
+
+1. **Google API key (weather, Places autocomplete and details)**: copy `secrets.example.json` to `secrets.json`, add your key, then run or build with:
+
+   ```bash
+   flutter run --dart-define-from-file=secrets.json
+   ```
+
+2. **Android Maps key**: add this line to `android/local.properties`:
+
+   ```properties
+   MAPS_API_KEY=your_android_maps_key
+   ```
+
+3. **ESP12F WiFi credentials**: copy `secrets.example.h` to `secrets.h`, in the same folder as `Water_depth_test.ino`, and fill in your WiFi name and password.
+
+4. **Raspberry Pi**: place your Firebase Admin SDK service-account JSON on the Pi and set `CRED_PATH` in `app.py` to its location.
+
+`secrets.json`, `secrets.h`, `android/local.properties` and Firebase Admin SDK files are git-ignored. Restrict your Google API keys in Google Cloud Console to this app and to only the APIs it uses.

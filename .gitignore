@@ -49,6 +49,11 @@ _vendor/
 __pycache__/
 *.pyc
 
+# Secrets (never commit these; use the *.example files as templates)
+secrets.h
+secrets.json
+*-firebase-adminsdk-*.json
+
 # Thesis writing drafts and diagram-rendering tooling (not part of the app)
 /docs/
 /scripts/

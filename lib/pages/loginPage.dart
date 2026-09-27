@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/weather/weather_config.dart';
 import 'package:flutter_application_1/weather/weather_service.dart';
 import 'package:http/http.dart' as http;
 import 'package:uuid/uuid.dart';
@@ -20,7 +21,7 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   final _findLocation =
-      WeatherService(googleApiKey: 'REDACTED_GOOGLE_API_KEY');
+      WeatherService(googleApiKey: kGoogleWeatherApiKey);
   String? selectedMethod; // store selected value
   final TextEditingController dateController = TextEditingController();
   final TextEditingController locationController = TextEditingController();
@@ -135,7 +136,7 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   void placeSuggestion(String input) async {
-    const String apiKey = 'REDACTED_GOOGLE_API_KEY';
+    const String apiKey = kGooglePlacesApiKey;
     try {
       String basedUrl =
           'https://maps.googleapis.com/maps/api/place/autocomplete/json';
@@ -177,8 +178,7 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Future<void> _getCoordinatesFromPlace(String placeId) async {
-    const String apiKey =
-        'REDACTED_GOOGLE_API_KEY'; // same key as above
+    const String apiKey = kGooglePlacesApiKey;
     final String url =
         'https://maps.googleapis.com/maps/api/place/details/json?place_id=$placeId&key=$apiKey';
 
